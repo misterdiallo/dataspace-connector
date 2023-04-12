@@ -1,0 +1,66 @@
+
+
+
+
+#..Server
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: true
+
+
+#..Spring
+spring:
+  jackson:
+    deserialization:
+      adjust-dates-to-context-time-zone: true
+    time-zone: Asia/Shanghai
+  application:
+    name: users-service
+  datasource:
+    driverClass-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/data-space-connector
+    username: root
+    password: misterdiallo
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Shanghai
+  mvc:
+    throw-exception-if-no-handler-found: true
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 2048MB
+
+
+config:
+  filepath: /Volumes/Data/??
+  defaultSharedReaderName: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+  token:
+    expiration_time: 1200000 #20min
+    secret: ABCDEFGHIJKLMNOPQRST
+  base-url: /v0/api/
+  url:
+    auth:
+      login: /login
+      logout: /logout
+      token-refresh: user/token/refresh
+    user:
+      check-status: user/check/status
+      create: user/save
+      get-one: user/get/one
+      get-all: user/get/all
+      update: user/update
+      delete: user/delete
