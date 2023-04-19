@@ -1,31 +1,28 @@
 package com.misterdiallo.backend.connector.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import java.util.Objects;
-
-@Table(name="storage")
+@Table(name="datasource")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @Entity
-public class StorageEntity {
+public class DataSourceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String type;
 
-    private String url;
-
-    private String credentials;
-
-    // constructors, getters, and setters
+    // getters and setters
 
 }
-

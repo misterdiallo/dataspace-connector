@@ -23,7 +23,7 @@ spring:
     driverClass-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/data-space-connector
     username: root
-    password: misterdiallo
+    password:
   jpa:
     show-sql: true
     generate-ddl: true
